@@ -15,6 +15,7 @@
 		7AC64AEF23CF124900790780 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AC64AED23CF124900790780 /* LaunchScreen.storyboard */; };
 		7AC64AFA23CF124900790780 /* Hacker_News_DigestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64AF923CF124900790780 /* Hacker_News_DigestTests.swift */; };
 		7AC64B0523CF124900790780 /* Hacker_News_DigestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64B0423CF124900790780 /* Hacker_News_DigestUITests.swift */; };
+		7AC64B1323CF3E1C00790780 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64B1223CF3E1C00790780 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		7AC64B0023CF124900790780 /* Hacker News DigestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hacker News DigestUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AC64B0423CF124900790780 /* Hacker_News_DigestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hacker_News_DigestUITests.swift; sourceTree = "<group>"; };
 		7AC64B0623CF124900790780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AC64B1223CF3E1C00790780 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				7AC64AEB23CF124900790780 /* Assets.xcassets */,
 				7AC64AED23CF124900790780 /* LaunchScreen.storyboard */,
 				7AC64AF023CF124900790780 /* Info.plist */,
+				7AC64B1223CF3E1C00790780 /* HomeViewController.swift */,
 			);
 			path = "Hacker News Digest";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				7AC64AE723CF124400790780 /* ViewController.swift in Sources */,
 				7AC64AE323CF124400790780 /* AppDelegate.swift in Sources */,
 				7AC64AE523CF124400790780 /* SceneDelegate.swift in Sources */,
+				7AC64B1323CF3E1C00790780 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
