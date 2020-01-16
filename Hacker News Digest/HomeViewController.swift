@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var TableData:Array<String> = Array <String>()
+    var TableData:Array<Posts> = Array <Posts>()
     let cellReuseIdentifier = "post"
     
     @IBOutlet weak var topStoriesTableView: UITableView!
@@ -23,7 +23,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             do {
                 let storyIds = try JSON(data: response.data!).arrayObject as! Array<Int>
                 
-                for storyId in storyIds {
+                for storyId in storyIds[1...30] {
                     self.getPost(storyId: storyId)
                 }
                 
@@ -40,16 +40,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)!
-        cell.textLabel?.text = TableData[indexPath.row]
+        let cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! PostTableViewCell
+        cell.postTitleLabel.text = TableData[indexPath.row].title
+        cell.pointsLabel.text = "Points: \(TableData[indexPath.row].point))"
+        cell.commentsLabel.text = "Comments: \(TableData[indexPath.row].comment)"
         return cell
     }
     
     func getPost(storyId: Int) {
         AF.request("https://hacker-news.firebaseio.com/v0/item/\(storyId).json").validate().responseJSON { response in
             do {
-                let title = try JSON(data: response.data!)["title"].description
-                self.TableData.append(title)
+                let json = try JSON(data: response.data!)
+                let title = json["title"].description
+                let point = json["score"].int
+                let comment = json["descendants"].int
+                self.TableData.append(Posts(title: title, point: point ?? 0, comment: comment ?? 0))
                 print(title)
                 self.topStoriesTableView.reloadData()
             } catch {
