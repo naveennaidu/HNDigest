@@ -7,17 +7,30 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var TableData:Array<Int> = Array <Int>()
+    var TableData:Array<String> = Array <String>()
     let cellReuseIdentifier = "post"
     
     @IBOutlet weak var topStoriesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getDataFrom(Url: "https://hacker-news.firebaseio.com/v0/topstories.json")
+        AF.request("https://hacker-news.firebaseio.com/v0/topstories.json").validate().responseJSON { response in
+            do {
+                let storyIds = try JSON(data: response.data!).arrayObject as! Array<Int>
+                
+                for storyId in storyIds {
+                    self.getPost(storyId: storyId)
+                }
+                
+            } catch {
+                print("JSON Error")
+            }
+        }
         topStoriesTableView.dataSource = self
         topStoriesTableView.delegate = self
     }
@@ -28,41 +41,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)!
-        cell.textLabel?.text = String(TableData[indexPath.row])
+        cell.textLabel?.text = TableData[indexPath.row]
         return cell
     }
     
-
-    func getDataFrom(Url: String) {
-        let url = URL(string: Url)!
-        let session = URLSession.shared
-        let request = URLRequest(url: url)
-        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-
-            guard error == nil else {
-                return
+    func getPost(storyId: Int) {
+        AF.request("https://hacker-news.firebaseio.com/v0/item/\(storyId).json").validate().responseJSON { response in
+            do {
+                let title = try JSON(data: response.data!)["title"].description
+                self.TableData.append(title)
+                print(title)
+                self.topStoriesTableView.reloadData()
+            } catch {
+                print("JSON Error")
             }
-
-            guard let data = data else {
-                return
-            }
-
-           do {
-              if let json = try JSONSerialization.jsonObject(with: data) as? [Int] {
-                self.TableData.append(contentsOf: json)
-                print(self.TableData)
-                DispatchQueue.main.async {
-                    self.topStoriesTableView.reloadData()
-                }
-              }
-           } catch let error {
-             print(error.localizedDescription)
-           }
-            
-        })
-
-        task.resume()
-        
+        }
     }
 }
 
