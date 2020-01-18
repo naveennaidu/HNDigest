@@ -20,6 +20,7 @@
 		7AC64B1923D0948E00790780 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 7AC64B1823D0948E00790780 /* SwiftyJSON */; };
 		7AC64B1B23D0A10A00790780 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64B1A23D0A10A00790780 /* PostTableViewCell.swift */; };
 		7AC64B1D23D0A32400790780 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64B1C23D0A32400790780 /* Posts.swift */; };
+		7AC64B1F23D3458E00790780 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64B1E23D3458E00790780 /* PostDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		7AC64B1223CF3E1C00790780 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7AC64B1A23D0A10A00790780 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		7AC64B1C23D0A32400790780 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
+		7AC64B1E23D3458E00790780 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				7AC64B1223CF3E1C00790780 /* HomeViewController.swift */,
 				7AC64B1A23D0A10A00790780 /* PostTableViewCell.swift */,
 				7AC64B1C23D0A32400790780 /* Posts.swift */,
+				7AC64B1E23D3458E00790780 /* PostDetailViewController.swift */,
 			);
 			path = "Hacker News Digest";
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AC64AE723CF124400790780 /* ViewController.swift in Sources */,
+				7AC64B1F23D3458E00790780 /* PostDetailViewController.swift in Sources */,
 				7AC64B1D23D0A32400790780 /* Posts.swift in Sources */,
 				7AC64AE323CF124400790780 /* AppDelegate.swift in Sources */,
 				7AC64B1B23D0A10A00790780 /* PostTableViewCell.swift in Sources */,

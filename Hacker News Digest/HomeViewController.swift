@@ -33,7 +33,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         topStoriesTableView.dataSource = self
         topStoriesTableView.delegate = self
+        topStoriesTableView.rowHeight = UITableView.automaticDimension
+        topStoriesTableView.estimatedRowHeight = 80
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return TableData.count
@@ -42,9 +45,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! PostTableViewCell
         cell.postTitleLabel.text = TableData[indexPath.row].title
-        cell.pointsLabel.text = "Points: \(TableData[indexPath.row].point))"
-        cell.commentsLabel.text = "Comments: \(TableData[indexPath.row].comment)"
+        cell.pointsLabel.text = "points: \(TableData[indexPath.row].point)"
+        cell.commentsLabel.text = "comments: \(TableData[indexPath.row].comment)"
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "postDetailSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let postDetailViewController = segue.destination as? PostDetailViewController,
+            let index = topStoriesTableView.indexPathForSelectedRow?.row
+            else {
+                return
+        }
+        postDetailViewController.titleLabel = self.TableData[index].title
     }
     
     func getPost(storyId: Int) {
@@ -55,7 +71,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let point = json["score"].int
                 let comment = json["descendants"].int
                 self.TableData.append(Posts(title: title, point: point ?? 0, comment: comment ?? 0))
-                print(title)
                 self.topStoriesTableView.reloadData()
             } catch {
                 print("JSON Error")
