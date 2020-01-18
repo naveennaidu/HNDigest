@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7AC64AE323CF124400790780 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64AE223CF124400790780 /* AppDelegate.swift */; };
 		7AC64AE523CF124400790780 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64AE423CF124400790780 /* SceneDelegate.swift */; };
-		7AC64AE723CF124400790780 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64AE623CF124400790780 /* ViewController.swift */; };
 		7AC64AEA23CF124400790780 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AC64AE823CF124400790780 /* Main.storyboard */; };
 		7AC64AEC23CF124900790780 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AC64AEB23CF124900790780 /* Assets.xcassets */; };
 		7AC64AEF23CF124900790780 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AC64AED23CF124900790780 /* LaunchScreen.storyboard */; };
@@ -19,7 +18,7 @@
 		7AC64B1623D0902100790780 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7AC64B1523D0902100790780 /* Alamofire */; };
 		7AC64B1923D0948E00790780 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 7AC64B1823D0948E00790780 /* SwiftyJSON */; };
 		7AC64B1B23D0A10A00790780 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64B1A23D0A10A00790780 /* PostTableViewCell.swift */; };
-		7AC64B1D23D0A32400790780 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64B1C23D0A32400790780 /* Posts.swift */; };
+		7AC64B1D23D0A32400790780 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64B1C23D0A32400790780 /* Post.swift */; };
 		7AC64B1F23D3458E00790780 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64B1E23D3458E00790780 /* PostDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +43,6 @@
 		7AC64ADF23CF124400790780 /* Hacker News Digest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hacker News Digest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AC64AE223CF124400790780 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AC64AE423CF124400790780 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7AC64AE623CF124400790780 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7AC64AE923CF124400790780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7AC64AEB23CF124900790780 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AC64AEE23CF124900790780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,7 +55,7 @@
 		7AC64B0623CF124900790780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AC64B1223CF3E1C00790780 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7AC64B1A23D0A10A00790780 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
-		7AC64B1C23D0A32400790780 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
+		7AC64B1C23D0A32400790780 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7AC64B1E23D3458E00790780 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,17 +109,13 @@
 		7AC64AE123CF124400790780 /* Hacker News Digest */ = {
 			isa = PBXGroup;
 			children = (
+				7AC64B2323D34B9900790780 /* Features */,
 				7AC64AE223CF124400790780 /* AppDelegate.swift */,
 				7AC64AE423CF124400790780 /* SceneDelegate.swift */,
-				7AC64AE623CF124400790780 /* ViewController.swift */,
 				7AC64AE823CF124400790780 /* Main.storyboard */,
 				7AC64AEB23CF124900790780 /* Assets.xcassets */,
 				7AC64AED23CF124900790780 /* LaunchScreen.storyboard */,
 				7AC64AF023CF124900790780 /* Info.plist */,
-				7AC64B1223CF3E1C00790780 /* HomeViewController.swift */,
-				7AC64B1A23D0A10A00790780 /* PostTableViewCell.swift */,
-				7AC64B1C23D0A32400790780 /* Posts.swift */,
-				7AC64B1E23D3458E00790780 /* PostDetailViewController.swift */,
 			);
 			path = "Hacker News Digest";
 			sourceTree = "<group>";
@@ -142,6 +136,89 @@
 				7AC64B0623CF124900790780 /* Info.plist */,
 			);
 			path = "Hacker News DigestUITests";
+			sourceTree = "<group>";
+		};
+		7AC64B2023D349BC00790780 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7AC64B1C23D0A32400790780 /* Post.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7AC64B2123D349C600790780 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7AC64B1A23D0A10A00790780 /* PostTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7AC64B2223D349DD00790780 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7AC64B1223CF3E1C00790780 /* HomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7AC64B2323D34B9900790780 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				7AC64B2523D34BFB00790780 /* PostCommentScreen */,
+				7AC64B2423D34BAD00790780 /* HomeScreen */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		7AC64B2423D34BAD00790780 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7AC64B2223D349DD00790780 /* Controllers */,
+				7AC64B2123D349C600790780 /* Views */,
+				7AC64B2023D349BC00790780 /* Models */,
+				7AC64B2923D34D5300790780 /* Logic */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		7AC64B2523D34BFB00790780 /* PostCommentScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7AC64B2623D34C1400790780 /* Controllers */,
+				7AC64B2723D34C1F00790780 /* Views */,
+				7AC64B2823D34C2800790780 /* Models */,
+			);
+			path = PostCommentScreen;
+			sourceTree = "<group>";
+		};
+		7AC64B2623D34C1400790780 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7AC64B1E23D3458E00790780 /* PostDetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7AC64B2723D34C1F00790780 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7AC64B2823D34C2800790780 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7AC64B2923D34D5300790780 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,9 +360,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AC64AE723CF124400790780 /* ViewController.swift in Sources */,
 				7AC64B1F23D3458E00790780 /* PostDetailViewController.swift in Sources */,
-				7AC64B1D23D0A32400790780 /* Posts.swift in Sources */,
+				7AC64B1D23D0A32400790780 /* Post.swift in Sources */,
 				7AC64AE323CF124400790780 /* AppDelegate.swift in Sources */,
 				7AC64B1B23D0A10A00790780 /* PostTableViewCell.swift in Sources */,
 				7AC64AE523CF124400790780 /* SceneDelegate.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Posts {
+class Post {
     var title: String
     var point: Int
     var comment: Int

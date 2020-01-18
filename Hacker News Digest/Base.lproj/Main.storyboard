@@ -145,10 +145,10 @@
             </objects>
             <point key="canvasLocation" x="2167" y="-403"/>
         </scene>
-        <!--View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="f0U-Va-lPj">
             <objects>
-                <tabBarController id="x2g-55-KCI" customClass="ViewController" customModule="Hacker_News_Digest" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="x2g-55-KCI" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u7j-12-DUY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

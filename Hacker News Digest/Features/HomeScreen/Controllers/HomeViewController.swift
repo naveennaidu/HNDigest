@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var TableData:Array<Posts> = Array <Posts>()
+    var TableData:Array<Post> = Array <Post>()
     let cellReuseIdentifier = "post"
     
     @IBOutlet weak var topStoriesTableView: UITableView!
@@ -70,7 +70,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let title = json["title"].description
                 let point = json["score"].int
                 let comment = json["descendants"].int
-                self.TableData.append(Posts(title: title, point: point ?? 0, comment: comment ?? 0))
+                self.TableData.append(Post(title: title, point: point ?? 0, comment: comment ?? 0))
                 self.topStoriesTableView.reloadData()
             } catch {
                 print("JSON Error")
