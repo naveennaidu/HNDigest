@@ -47,47 +47,60 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="post" rowHeight="80" id="Cjw-a6-gTO" customClass="PostTableViewCell" customModule="Hacker_News_Digest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="post" rowHeight="110" id="Cjw-a6-gTO" customClass="PostTableViewCell" customModule="Hacker_News_Digest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cjw-a6-gTO" id="5eY-Eh-9BS">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZc-t8-elq">
-                                                    <rect key="frame" x="8" y="8" width="398" height="32"/>
+                                                    <rect key="frame" x="8" y="8" width="398" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="points: 1096" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqt-SB-rvd">
-                                                    <rect key="frame" x="112" y="48" width="75.5" height="16"/>
+                                                    <rect key="frame" x="112" y="78" width="75.5" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="comments: 44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DB2-JS-9y3">
-                                                    <rect key="frame" x="8" y="48" width="88" height="16"/>
+                                                    <rect key="frame" x="8" y="78" width="88" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMr-zj-lWO">
+                                                    <rect key="frame" x="8" y="36.5" width="398" height="33.5"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
+                                                    <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                                    <state key="normal" title="Website link"/>
+                                                    <connections>
+                                                        <action selector="onLinkPressed:" destination="Cjw-a6-gTO" eventType="touchUpInside" id="GiR-z7-Ytx"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="TMr-zj-lWO" firstAttribute="leading" secondItem="5eY-Eh-9BS" secondAttribute="leading" constant="8" id="4Ux-ee-W4H"/>
+                                                <constraint firstItem="uqt-SB-rvd" firstAttribute="top" secondItem="TMr-zj-lWO" secondAttribute="bottom" constant="8" id="8CL-qo-L5U"/>
                                                 <constraint firstAttribute="bottom" secondItem="uqt-SB-rvd" secondAttribute="bottom" constant="16" id="CsJ-bv-jzT"/>
+                                                <constraint firstItem="DB2-JS-9y3" firstAttribute="top" secondItem="TMr-zj-lWO" secondAttribute="bottom" constant="8" id="OPY-kC-EHd"/>
                                                 <constraint firstItem="DB2-JS-9y3" firstAttribute="leading" secondItem="5eY-Eh-9BS" secondAttribute="leading" constant="8" id="SAr-tJ-IEP"/>
                                                 <constraint firstAttribute="bottom" secondItem="DB2-JS-9y3" secondAttribute="bottom" constant="16" id="Toh-N9-rDa"/>
+                                                <constraint firstAttribute="trailing" secondItem="TMr-zj-lWO" secondAttribute="trailing" constant="8" id="WJ1-zY-SuY"/>
                                                 <constraint firstItem="ZZc-t8-elq" firstAttribute="leading" secondItem="5eY-Eh-9BS" secondAttribute="leading" constant="8" id="XKd-wB-PAB"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uqt-SB-rvd" secondAttribute="trailing" constant="20" symbolic="YES" id="Z1K-rh-rMN"/>
-                                                <constraint firstItem="uqt-SB-rvd" firstAttribute="top" secondItem="ZZc-t8-elq" secondAttribute="bottom" constant="8" id="azH-a7-WaN"/>
                                                 <constraint firstItem="ZZc-t8-elq" firstAttribute="top" secondItem="5eY-Eh-9BS" secondAttribute="top" constant="8" id="cyG-5c-XC6"/>
+                                                <constraint firstItem="TMr-zj-lWO" firstAttribute="top" secondItem="ZZc-t8-elq" secondAttribute="bottom" constant="8" id="fDt-9G-k8j"/>
                                                 <constraint firstItem="uqt-SB-rvd" firstAttribute="leading" secondItem="DB2-JS-9y3" secondAttribute="trailing" constant="16" id="gXL-T5-dCk"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZZc-t8-elq" secondAttribute="trailing" constant="8" id="gpU-xv-MhG"/>
-                                                <constraint firstItem="DB2-JS-9y3" firstAttribute="top" secondItem="ZZc-t8-elq" secondAttribute="bottom" constant="8" id="lIe-o2-5AN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentsLabel" destination="DB2-JS-9y3" id="bZl-0B-TAL"/>
+                                            <outlet property="linkButton" destination="TMr-zj-lWO" id="nLC-O9-Qbn"/>
                                             <outlet property="pointsLabel" destination="uqt-SB-rvd" id="Bg5-WQ-dqz"/>
                                             <outlet property="postTitleLabel" destination="ZZc-t8-elq" id="7li-HX-Gks"/>
                                         </connections>

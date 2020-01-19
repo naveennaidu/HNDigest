@@ -13,5 +13,11 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
+    @IBOutlet weak var linkButton: UIButton!
+    
+    var actionBlock: (() -> Void)? = nil
 
+    @IBAction func onLinkPressed(_ sender: Any) {
+        actionBlock?()
+    }
 }

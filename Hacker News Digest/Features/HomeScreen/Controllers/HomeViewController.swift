@@ -38,6 +38,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         topStoriesTableView.estimatedRowHeight = 80
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        //deselect selected UITableView cell
+        if let index = self.topStoriesTableView.indexPathForSelectedRow{
+            self.topStoriesTableView.deselectRow(at: index, animated: true)
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return TableData.count
@@ -46,19 +53,33 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! PostTableViewCell
         cell.postTitleLabel.text = TableData[indexPath.row].title
+        cell.linkButton.setTitle(TableData[indexPath.row].postUrl, for: .normal)
+        cell.linkButton.contentHorizontalAlignment = .left
+        cell.linkButton.backgroundColor = .clear
+        cell.linkButton.layer.cornerRadius = 5
+        cell.linkButton.layer.borderWidth = 1
+        cell.linkButton.layer.borderColor = UIColor.gray.cgColor
+        cell.actionBlock = {
+            let urlString = self.TableData[indexPath.row].postUrl
+            if let url = URL(string: urlString), !url.absoluteString.isEmpty{
+                let config = SFSafariViewController.Configuration()
+                let vc = SFSafariViewController(url: url, configuration: config)
+                self.present(vc, animated: true)
+            }
+        }
         cell.pointsLabel.text = "points: \(TableData[indexPath.row].point)"
         cell.commentsLabel.text = "comments: \(TableData[indexPath.row].comment)"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.performSegue(withIdentifier: "postDetailSegue", sender: self)
-        let urlString = self.TableData[indexPath.row].postUrl
-        if let url = URL(string: urlString), !url.absoluteString.isEmpty{
-            let config = SFSafariViewController.Configuration()
-            let vc = SFSafariViewController(url: url, configuration: config)
-            present(vc, animated: true)
-        }
+        self.performSegue(withIdentifier: "postDetailSegue", sender: self)
+//        let urlString = self.TableData[indexPath.row].postUrl
+//        if let url = URL(string: urlString), !url.absoluteString.isEmpty{
+//            let config = SFSafariViewController.Configuration()
+//            let vc = SFSafariViewController(url: url, configuration: config)
+//            present(vc, animated: true)
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
