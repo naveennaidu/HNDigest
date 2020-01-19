@@ -54,7 +54,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! PostTableViewCell
         cell.postTitleLabel.text = TableData[indexPath.row].title
         cell.linkButton.setTitle(TableData[indexPath.row].postUrl, for: .normal)
-        cell.linkButton.contentHorizontalAlignment = .left
         cell.linkButton.backgroundColor = .clear
         cell.linkButton.layer.cornerRadius = 5
         cell.linkButton.layer.borderWidth = 1
@@ -74,12 +73,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "postDetailSegue", sender: self)
-//        let urlString = self.TableData[indexPath.row].postUrl
-//        if let url = URL(string: urlString), !url.absoluteString.isEmpty{
-//            let config = SFSafariViewController.Configuration()
-//            let vc = SFSafariViewController(url: url, configuration: config)
-//            present(vc, animated: true)
-//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,7 +81,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             else {
                 return
         }
-        postDetailViewController.titleLabel = self.TableData[index].title
+        postDetailViewController.post = self.TableData[index]
     }
     
     func getPost(storyId: Int) {

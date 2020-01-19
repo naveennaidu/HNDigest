@@ -135,28 +135,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="post detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPL-Ni-bpg">
-                                <rect key="frame" x="166.5" y="437.5" width="81" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbz-hR-vRV">
+                                <rect key="frame" x="20" y="140" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2j-HZ-rO7">
+                                <rect key="frame" x="20" y="176.5" width="374" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="8" maxX="0.0" maxY="8"/>
+                                <state key="normal" title="Link"/>
+                                <connections>
+                                    <action selector="onLinkButtonPressed:" destination="gXA-Zd-ZHm" eventType="touchUpInside" id="btO-IS-ero"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="points: 1026" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYM-QW-ULJ">
+                                <rect key="frame" x="130.5" y="216.5" width="75" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="comments: 222" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sii-DC-09V">
+                                <rect key="frame" x="20" y="216.5" width="94.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="XPL-Ni-bpg" firstAttribute="centerY" secondItem="did-Oq-xd8" secondAttribute="centerY" id="YqP-Im-Dad"/>
-                            <constraint firstItem="XPL-Ni-bpg" firstAttribute="centerX" secondItem="did-Oq-xd8" secondAttribute="centerX" id="e8T-3X-xZx"/>
+                            <constraint firstItem="Dbz-hR-vRV" firstAttribute="top" secondItem="JQ2-E7-eV0" secondAttribute="top" id="21X-Np-NMF"/>
+                            <constraint firstItem="Dbz-hR-vRV" firstAttribute="leading" secondItem="JQ2-E7-eV0" secondAttribute="leading" constant="20" id="41a-cp-uj4"/>
+                            <constraint firstItem="bYM-QW-ULJ" firstAttribute="top" secondItem="t2j-HZ-rO7" secondAttribute="bottom" constant="8" id="9qu-WH-oRb"/>
+                            <constraint firstItem="t2j-HZ-rO7" firstAttribute="top" secondItem="Dbz-hR-vRV" secondAttribute="bottom" constant="16" id="DfZ-Nb-EHl"/>
+                            <constraint firstItem="bYM-QW-ULJ" firstAttribute="leading" secondItem="sii-DC-09V" secondAttribute="trailing" constant="16" id="PtE-SJ-eVQ"/>
+                            <constraint firstItem="JQ2-E7-eV0" firstAttribute="trailing" secondItem="Dbz-hR-vRV" secondAttribute="trailing" constant="20" id="T0I-id-lJi"/>
+                            <constraint firstItem="sii-DC-09V" firstAttribute="leading" secondItem="JQ2-E7-eV0" secondAttribute="leading" constant="20" id="Ycd-OO-naR"/>
+                            <constraint firstItem="t2j-HZ-rO7" firstAttribute="leading" secondItem="JQ2-E7-eV0" secondAttribute="leading" constant="20" id="Znm-3h-i1W"/>
+                            <constraint firstItem="sii-DC-09V" firstAttribute="top" secondItem="t2j-HZ-rO7" secondAttribute="bottom" constant="8" id="d9E-Q6-iJj"/>
+                            <constraint firstItem="JQ2-E7-eV0" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bYM-QW-ULJ" secondAttribute="trailing" symbolic="YES" id="gos-Vy-WEK"/>
+                            <constraint firstItem="JQ2-E7-eV0" firstAttribute="trailing" secondItem="t2j-HZ-rO7" secondAttribute="trailing" constant="20" id="gs7-sb-T6T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JQ2-E7-eV0"/>
                     </view>
                     <navigationItem key="navigationItem" id="GEd-Sh-Vxu"/>
                     <connections>
-                        <outlet property="testLabel" destination="XPL-Ni-bpg" id="5yp-Wl-cuH"/>
+                        <outlet property="commentLabel" destination="sii-DC-09V" id="Q11-8n-3M6"/>
+                        <outlet property="linkButton" destination="t2j-HZ-rO7" id="Iy9-NN-UML"/>
+                        <outlet property="pointLabel" destination="bYM-QW-ULJ" id="ddv-oc-qo3"/>
+                        <outlet property="titleLabel" destination="Dbz-hR-vRV" id="zn1-S6-KjB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OBf-it-9U3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2167" y="-403"/>
+            <point key="canvasLocation" x="2166.666666666667" y="-403.125"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="f0U-Va-lPj">
