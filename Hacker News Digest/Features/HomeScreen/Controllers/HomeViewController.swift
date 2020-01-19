@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SafariServices
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -51,7 +52,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "postDetailSegue", sender: self)
+//        self.performSegue(withIdentifier: "postDetailSegue", sender: self)
+        let urlString = self.TableData[indexPath.row].postUrl
+        if let url = URL(string: urlString), !url.absoluteString.isEmpty{
+            let config = SFSafariViewController.Configuration()
+            let vc = SFSafariViewController(url: url, configuration: config)
+            present(vc, animated: true)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,9 +75,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             do {
                 let json = try JSON(data: response.data!)
                 let title = json["title"].description
+                let postUrl = json["url"].description
                 let point = json["score"].int
                 let comment = json["descendants"].int
-                self.TableData.append(Post(title: title, point: point ?? 0, comment: comment ?? 0))
+                self.TableData.append(Post(title: title, postUrl: postUrl, point: point ?? 0, comment: comment ?? 0))
                 self.topStoriesTableView.reloadData()
             } catch {
                 print("JSON Error")
